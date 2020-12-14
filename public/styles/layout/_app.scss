@@ -1,0 +1,31 @@
+.l-app {
+  position: relative;
+  min-height: 100vh;
+
+  @include respond(tablet) {
+    --columnSize: 11em;
+    display: grid;
+    grid-template-columns: var(--columnSize);
+    grid-template-rows: px-rem(111, 9);
+    grid-template-areas:
+      "sidebar header"
+      "sidebar cards";
+  }
+
+  @include respond(desktop) {
+    --columnSize: 24em;
+    grid-template-rows: 20em;
+  }
+}
+
+.l-header {
+  grid-area: header;
+}
+
+.l-sidebar {
+  grid-area: sidebar;
+}
+
+.l-cards {
+  grid-area: cards;
+}

@@ -1,0 +1,23 @@
+$breakpoints: (
+  "tablet": px-rem(768),
+  "desktop": px-rem(1024),
+  "desktop-xl": px-rem(1440),
+);
+
+@mixin respond($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// hamburger toggler
+@mixin line($top) {
+  content: "";
+  position: absolute;
+  top: $top;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  background: inherit;
+  transition: all var(--durationHamburger) ease;
+}

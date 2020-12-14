@@ -1,0 +1,82 @@
+.c-hamburger {
+  --hamburgerSize: 6rem;
+  --lineHeight: 0.2em;
+  --bg: var(--blue0);
+  position: absolute;
+  top: 3.1em;
+  right: calc(-1 * var(--hamburgerSize) + 1rem);
+  z-index: 20;
+  width: var(--hamburgerSize);
+  height: var(--hamburgerSize);
+
+  &__checkbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--hamburgerSize);
+    height: var(--hamburgerSize);
+    z-index: 30;
+    opacity: 0;
+    cursor: pointer;
+
+    &:checked {
+      & + .c-hamburger__box {
+        > span {
+          transform: rotate(135deg);
+
+          &:before,
+          &:after {
+            top: 0;
+            transform: rotate(90deg);
+          }
+
+          &:after {
+            opacity: 0;
+          }
+        }
+      }
+
+      &:hover + .c-hamburger__box > span {
+        transform: rotate(225deg);
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    width: var(--hamburgerSize);
+    height: var(--hamburgerSize);
+    padding: 0.5em 1.5em;
+    backface-visibility: hidden;
+
+    &:after {
+      content: url(../assets/images/hamburger.svg);
+      position: absolute;
+      top: -3.5em;
+      left: 1em;
+      width: calc(var(--hamburgerSize) + 0em);
+      height: calc(var(--hamburgerSize) + 0em);
+      z-index: -1;
+
+      @include respond(tablet) {
+        top: -3em;
+      }
+    }
+  }
+
+  &__line {
+    position: relative;
+    width: 100%;
+    height: var(--lineHeight);
+    background: var(--black);
+    transition: all var(--durationHamburger) ease;
+
+    &:before {
+      @include line(calc(-1 * var(--hamburgerSize) / 6));
+    }
+
+    &:after {
+      @include line(calc(var(--hamburgerSize) / 6));
+    }
+  }
+}

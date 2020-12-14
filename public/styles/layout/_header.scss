@@ -1,0 +1,37 @@
+.l-header {
+  --pad: 5em 2em 3em 4em;
+  --headerWidth: 100%;
+  width: var(--headerWidth);
+  padding: var(--pad);
+
+  @include respond(tablet) {
+    --pad: 3em 2em 3em 8em;
+  }
+
+  @include respond(desktop) {
+    --pad: 4em 6em;
+  }
+
+  &__wrapper {
+    width: var(--headerWidth);
+  }
+
+  &__title {
+    --show: block;
+    --align: right;
+    display: var(--show);
+    font-size: 2.8em;
+    font-family: "Open-sans", sans-serif;
+    font-weight: 600;
+    text-align: var(--align);
+
+    @include respond(tablet) {
+      --show: none;
+      --align: initial;
+    }
+
+    @include respond(desktop) {
+      --show: block;
+    }
+  }
+}

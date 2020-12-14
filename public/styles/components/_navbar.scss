@@ -1,0 +1,95 @@
+.c-navbar {
+  --opText: 1;
+  --opLink: 0;
+  --iconGapR: 0;
+  overflow: hidden;
+
+  &__logo-wrapper {
+    width: var(--sbWidth);
+    padding: 4em;
+  }
+
+  &__logo-picture {
+    width: 3em;
+    margin-right: 1.6em;
+  }
+
+  &__logo-text {
+    opacity: var(--opText);
+    transition: opacity var(--durationTextAppearing) ease
+      var(--durationTextAppearing);
+    font-size: 1.6em;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+  }
+
+  &__link {
+    width: 24em;
+    padding: 2em 4em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      opacity: var(--opLink);
+      transform: translateY(-50%);
+      width: 0.3em;
+      height: 2.4em;
+      border-radius: 3em;
+      background: var(--blue1);
+    }
+
+    &--is-active {
+      & path {
+        stroke: var(--blue1);
+      }
+
+      &::before {
+        --opLink: 1;
+      }
+
+      & .c-navbar__text-link {
+        color: var(--blue1);
+      }
+    }
+  }
+
+  &__text-link {
+    opacity: var(--opText);
+    transition: opacity var(--durationTextAppearing) ease
+      var(--durationTextAppearing);
+    pointer-events: none;
+    font-size: 1.6em;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  &__icon {
+    margin-right: var(--iconGapR);
+    pointer-events: none;
+    width: 2.4em;
+  }
+
+  &--is-active {
+    & .c-navbar__logo-text,
+    & .c-navbar__text-link {
+      --opText: 1;
+    }
+  }
+
+  @include respond(tablet) {
+    --opText: 0;
+    --iconGapR: 1.8em;
+  }
+
+  @include respond(desktop) {
+    --opText: 1;
+    --iconGapR: 1em;
+  }
+}

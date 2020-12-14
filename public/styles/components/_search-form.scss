@@ -1,0 +1,48 @@
+.c-search-form {
+  --sfWidth: 100%;
+  --gapT: 3em;
+  width: var(--sfWidth);
+  margin-top: var(--gapT);
+
+  @include respond(tablet) {
+    --gapT: 0;
+  }
+  @include respond(desktop) {
+    --gapT: 3em;
+  }
+
+  &__label {
+    position: relative;
+    display: block;
+    width: inherit;
+    padding: 1.2em 4.4em;
+    border: 1px solid var(--gray1) {
+      radius: 5em;
+    }
+  }
+
+  &__input {
+    width: var(--sfWidth);
+    border: none;
+    outline: none;
+    color: var(--gray3);
+    font-size: 1.8rem;
+    font-family: "Open-sans", sans-serif;
+    font-weight: 400;
+    line-height: 2.8rem;
+
+    &::placeholder {
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.8em;
+    transform: translateY(-50%);
+  }
+}

@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 50%; // 1rem => 8px, 8/16
+
+  @include respond(tablet) {
+    font-size: 56.25%; // 1rem => 9px, 9/16
+  }
+
+  @include respond(desktop) {
+    font-size: 62.5%; // 1rem => 10px, 10/16
+  }
+
+  @include respond(desktop-xl) {
+    font-size: 75%; // 1rem = 12px, 12/16
+  }
+}
+
+body {
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    width: 0.5em;
+    border-radius: 50%;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--gray0);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--gray1);
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+a,
+a:focus {
+  text-decoration: none;
+  color: currentColor;
+}

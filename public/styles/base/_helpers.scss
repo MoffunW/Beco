@@ -1,0 +1,39 @@
+.h-flex {
+  display: flex;
+}
+
+.h-items-center {
+  align-items: center;
+}
+
+.h-justify-between {
+  justify-content: space-between;
+}
+
+.h-flex-column {
+  flex-direction: column;
+}
+
+.h-hide-phone {
+  --d: none;
+  display: var(--d);
+
+  @include respond(tablet) {
+    --d: block;
+  }
+}
+
+.h-hide-tablet {
+  --d: none;
+  display: var(--d);
+
+  @include respond(desktop) {
+    --d: block;
+  }
+}
+
+.h-hide-desktop {
+  @include respond(desktop) {
+    display: none;
+  }
+}
